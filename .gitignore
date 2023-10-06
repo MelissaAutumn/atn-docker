@@ -1,0 +1,4 @@
+# Ignore the actual addons-server folder
+addons-server
+.idea
+.DS_STORE

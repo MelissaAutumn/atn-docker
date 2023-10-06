@@ -1,0 +1,290 @@
+watchmedo --help
+pytest tdd
+pytest ttd
+python -v
+python2
+python
+python3
+$ADDONS_LINTER_BIN 
+node -v
+npm update
+python
+python
+systemctl start mysqld
+service start mysql
+service start mysqld
+service start mysql-server
+service
+service mysql start
+service mysql-server
+service memcache
+service list
+service --help
+service memcached
+service memcached status
+service redis status
+service redisd status
+service redis-server status
+service nginx status
+service mysql status
+service mysqld status
+service mysqld
+service --help
+service memcached
+service memcached status
+service redis status
+service redisd status
+service redis-server status
+service nginx status
+service mysql status
+service mysqld status
+service mysqld
+ wget https://dev.mysql.com/get/mysql-apt-config_0.8.18-1_all.deb
+dpkg --helpdpkg -i mysql-apt-config_0.8.18-1_all.deb
+apt install lsb
+apt install lsb-release
+dpkg -i mysql-apt-config_0.8.18-1_all.deb 1
+dpkg --print-avail
+dpkg --help
+dpkg -i mysql-apt-config_0.8.18-1_all.deb --set-selections=1
+dpkg -i mysql-apt-config_0.8.18-1_all.deb --set-selections 1
+dpkg -i --set-selections 1 mysql-apt-config_0.8.18-1_all.deb
+dpkg -i --set-selections 1 mysql-apt-config_0.8.18-1_all.deb | y
+dpkg -i mysql-apt-config_0.8.18-1_all.deb | y
+yes
+dpkg -i mysql-apt-config_0.8.18-1_all.deb | yes
+dpkg -i mysql-apt-config_0.8.18-1_all.deb << yes
+dpkg -i mysql-apt-config_0.8.18-1_all.deb
+DEBIAN_FRONTEND=noninteractive
+apt install
+apt-key up
+apt install gnupg
+apt-key
+apt-key update
+apt-key list
+apt update
+DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.18-1_all.deb
+DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.18-1_all.deb
+cd /etc/var/nginx
+cd /var/etc/nginx
+/usr/etc/nginx
+/etc/nginx
+cd /etc/nginx
+cd sites-available/
+ls -l
+cat default
+cat default
+mysql
+mysql show databases
+mysql -i show databases
+RUN mysql UPDATE mysql.user SET Password=PASSWORD('${MYSQL_ROOT_PASSWORD}') WHERE User='root';
+mysql UPDATE mysql.user SET Password=PASSWORD('${MYSQL_ROOT_PASSWORD}') WHERE User='root';
+echo $MYSQL_ROOT_PASSWORD
+echo "$MYSQL_ROOT_PASSWORD"
+echo "${MYSQL_ROOT_PASSWORD}"
+mysql UPDATE mysql.user SET Password=PASSWORD("${MYSQL_ROOT_PASSWORD}") WHERE User='root';
+mysql select * from mysql;
+use mysql;
+ update user SET PASSWORD=PASSWORD("password") WHERE USER='root';
+ flush privileges;
+ exit
+use mysql;
+ update user SET PASSWORD=PASSWORD("password") WHERE USER='root';
+ flush privileges;
+ exit
+cd /etc/mysql/
+cat mariadb.c
+cat mariadb.cnf
+cat debian
+cat debian.cnf
+cd conf.d
+ls -l
+cat mysql
+cat mysql.cnf
+ll
+ls -la
+vim my.cnf
+vi my.cnf
+cat my.cfn
+cat my.cnf
+cd /etc/mysql
+ls -la
+cat mariadb.cnf
+cd mariadb.d
+cd mariadb.conf.d
+ll
+cat 50-server.cnf 
+mysql
+mysql -u root -e "SET PASSWORD FOR root@localhost = PASSWORD('docker');"
+mysql -u root -e "FLUSH PRIVILEGES;"
+mysql -u root -e "CREATE DATABASE olympia";
+python
+$DATABASES_DEFAULT_URL
+cd /etc/mysql
+ls -l
+cat mariadb.conf
+cat mariadb.cnf
+cd /etc/mysql/mariadb.conf.d/
+ll
+cat 50-server.cnf
+pwd
+cd /etc/mysql/mariadb.conf.d/
+cat 50-server.cnf
+pwd
+ls -la
+cd src
+cd olympia
+ls -l
+ll
+make shell
+make
+make -f Makefile-docker
+make -F Makefile-docker
+make -f Makefile-os
+make -f Makefile-os djshell
+mysql -u root -e "CREATE DATABASE olympia";
+cd /etc/rabbitmq/
+ls -l
+cat rabbitmq-env.conf 
+mysql -u root -P 3306 -e "CREATE DATABASE olympia";
+mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
+make initialize
+rabbitmqctl
+cd /var/log
+ls -la
+less rabbitmq/rabbit\@596eed3b5f05.log 
+less rabbitmq/rabbit\@596eed3b5f05.log 
+mysql -u root -P 3306 -e "CREATE DATABASE olympia";
+mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
+make initialize
+cat /etc/rabbitmq/rabbitmq-env.conf 
+cat /etc/rabbitmq/rabbitmq.conf
+less +F /var/log/rabbitmq/rabbit\@c27d11c6128d
+less +F /var/log/rabbitmq/rabbit\@c27d11c6128d.log 
+mysqlclient
+mysqlADMIN
+mysqladmin
+mysqladmin ping -h "localhost"
+mysqlADMIN
+mysqladmin
+mysqladmin ping -h "localhost"
+while ! mysqladmin ping -h"localhost" --silent; do sleep 1 done
+while ! mysqladmin ping -h"localhost" --silent; do: sleep 1; done
+while ! mysqladmin ping -h"localhost" --silent; do sleep 1; done
+mysql -u root
+mysql
+mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'olympia'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
+mysql
+mysql -u root
+mysql -u root -p
+mysql -u olympia -p
+mysql -u root -p
+while ! mysqladmin ping -h"localhost" --silent; do: sleep 1; done
+while ! mysqladmin ping -h"localhost" --silent; do sleep 1; done
+mysqlshow | grep olympia
+mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
+less +F /var/log/rabbitmq/rabbit\@c27d11c6128d.log 
+less +F /var/log/rabbitmq/rabbit\@971ec875dbbd.log 
+make initialize
+mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'olympia'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
+mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
+su olympia
+mysql -u root
+mysql -u root -p
+make initialize
+mysql -u root
+mysql -u root -p
+make initialize
+service elasticsearch status
+service elasticsearch start
+journalctl
+journalctl --help
+journalctl -k
+cat /etc/sysctl.conf
+cat /etc/elasticsearch/jvm.options
+cat /etc/elasticsearch/jvm.options.d/ll
+cat /etc/elasticsearch/elasticsearch
+cat /etc/elasticsearch/elasticsearch.yml
+cd /etc/init.d
+ls -la
+cat elasticsearch 
+cat /etc/elasticsearch/jvm.options.d/ll
+cat /etc/elasticsearch/elasticsearch
+cat /etc/elasticsearch/elasticsearch.yml
+cd /etc/init.d
+cat elasticsearch 
+cd /var/log
+journal
+syslog
+less +F journal
+cd jorunal
+cd journal/
+cd myslq
+cd mysql/
+d ..
+cd lastlog
+cat lasglog
+cat lastlog 
+less +F journal/*
+journalctl -f
+journalctl --help
+journalctl --system
+journalctl -f --system
+ls -la
+less dpkg.log 
+less alternatives.log 
+less faillog 
+cd nginx
+ls -l
+ll
+llexit
+llexit
+make initalize
+make initialie
+make initialize
+redis-cli
+redis-cli services
+redis-cli -h services
+redis-cli -h localhost
+mariadb
+mysql -h services
+mysql -h services -p
+redis-cli -h services -p 6379
+redis-cli -h services -p 6379e
+redis-cli
+cd /etc/redis
+ls -la
+cat redis.conf
+redis-cli -h services -p 6379e
+redis-cli -h services -p 6379
+cd /etc/redis
+sudo vim redis.conf
+redis-cli -h services -p 6379
+redis-cli -h services -p 6379
+redis-cli 
+cd /var/log/redis
+less +F redis-server.log 
+exut
+redis-cli -h services -p 6379
+make intiailize
+make intitialize
+make intialize
+make initialize
+make initialize
+python -m pytest
+python -m pytest src/olympia
+cd /build
+cd libgit2/
+cd libgit2-0.27.4/
+cd build
+sudo cmake --build . --target install
+cmake --build . --target install
+cd /usr/local/lib
+ls -la
+su - root
+cd /usr/lib
+cd bin
+cd lib
+cd ../local/lib
+chmod +x libgit2.so.0.27.4 
+ls -l

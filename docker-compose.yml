@@ -1,0 +1,74 @@
+x-env-mapping: &env
+  environment:
+    - CELERY_BROKER_URL=amqp://olympia:olympia@services/olympia
+    - CELERY_RESULT_BACKEND=redis://services:6379/1
+    - DATABASES_DEFAULT_URL=mysql://root:docker@services:3306/olympia
+    - ELASTICSEARCH_LOCATION=elasticsearch:9200
+    - MEMCACHE_LOCATION=services:11211
+    - MYSQL_DATABASE=olympia
+    - MYSQL_ROOT_PASSWORD=docker
+    - OLYMPIA_SITE_URL=http://olympia.test
+    - PYTHONDONTWRITEBYTECODE=1
+    - PYTHONUNBUFFERED=1
+    - RECURSION_LIMIT=10000
+    - TERM=xterm-256color
+
+services:
+  worker: &worker
+    <<: *env
+    build: .
+    #  context: ../
+    #  dockerfile: ./addons-server-docker/Dockerfile
+    command: supervisord -n -c /code/docker/supervisor-celery.conf
+    entrypoint: ./scripts/start-docker.sh
+    volumes:
+      - './addons-server:/code'
+
+  web:
+    <<: *worker
+    command: supervisord -n -c /code/docker/supervisor.conf
+    extra_hosts:
+      - "olympia.test:127.0.0.1"
+    ports:
+      - 8000:8000
+
+  services:
+    <<: *worker
+    command: /start-docker-services.sh #./scripts/start-docker-services.sh
+    entrypoint: '/bin/bash'
+    volumes:
+      - 'mariadbvolume:/var/lib/mysql'
+      - './addons-server:/code'
+
+    expose:
+      - 6379:6379   # Redis
+      - 11211:11211 # Memcache
+    ports:
+      - 3306:3306   # Mariadb
+      - 80:80       # Nginx
+
+  elasticsearch:
+    platform: linux/amd64
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.4.1
+    ulimits:
+        nproc: 65535
+        nofile:
+            soft: 20000
+            hard: 40000
+    environment:
+      # Disable all xpack related features to avoid unrelated logging
+      # in docker logs. https://github.com/mozilla/addons-server/issues/8887
+      # This also avoids us to require authentication for local development
+      # which simplifies the setup.
+      - xpack.security.enabled=false
+      - xpack.monitoring.enabled=false
+      - xpack.graph.enabled=false
+      - xpack.watcher.enabled=false
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      # M1 mac emulation doesn't support this feature
+      - bootstrap.system_call_filter=false
+    mem_limit: 2g
+
+volumes:
+  mariadbvolume:
