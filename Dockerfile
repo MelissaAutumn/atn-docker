@@ -60,12 +60,12 @@ RUN apt-get update && apt-get install -y \
 # Compile required locale
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 
-# Build libgit2-0.27
+# Build libgit2-0.28.2
 RUN mkdir -p /build/libgit2
-RUN wget -P /build/libgit2 https://github.com/libgit2/libgit2/archive/refs/tags/v0.27.4.tar.gz
+RUN wget -P /build/libgit2 https://github.com/libgit2/libgit2/archive/refs/tags/v0.28.2.tar.gz
 RUN cd /build/libgit2 \
-    && tar -xf v0.27.4.tar.gz  \
-    && cd libgit2-0.27.4  \
+    && tar -xf v0.28.2.tar.gz  \
+    && cd libgit2-0.28.2  \
     && mkdir build \
     && cd build \
     && cmake .. \
@@ -90,6 +90,7 @@ ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:
 RUN python --version
 RUN python -m ensurepip --upgrade
 RUN python -m pip install --upgrade pip
+RUN python -m pip install wheel pycparser==2.13
 
 # Set the locale. This is mainly so that tests can write non-ascii files to
 # disk.
@@ -127,7 +128,7 @@ ENV CLEANCSS_BIN /deps/node_modules/.bin/cleancss
 ENV LESS_BIN /deps/node_modules/.bin/lessc
 ENV UGLIFY_BIN /deps/node_modules/.bin/uglifyjs
 ENV ADDONS_LINTER_BIN /deps/node_modules/.bin/addons-linter
-RUN npm cache clean -f && npm install -g n && /deps/bin/n 14.21
+RUN npm cache clean -f && npm install -g n && /deps/bin/n 16
 
 # Add our nginx config
 ADD docker/etc/nginx/sites-available/atn.conf /etc/nginx/sites-available/atn.conf

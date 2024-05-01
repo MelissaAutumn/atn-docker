@@ -11,7 +11,7 @@ service rabbitmq-server start
 if [[ -z $(mysqlshow | grep olympia) ]]; then
 mysql -u root -P 3306 -e "CREATE DATABASE olympia";
 # Allow docker access
-mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
+mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
 # Allow olympia user to actually use root
 mysql -u root -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' WITH GRANT OPTION;"
 echo "Ran first time mysql setup!"
