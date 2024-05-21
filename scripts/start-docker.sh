@@ -6,7 +6,6 @@
 # with files owned by root. So create a new user with the same UID,
 # and drop privileges before running any commands.
 
-
 # Get the numeric user ID of the current directory.
 uid=$(ls -nd . | awk '{ print $3 }')
 
@@ -21,6 +20,13 @@ if [[ $uid -eq 0 ]]; then
     useradd -Md $(pwd) olympia
 else
     useradd -Md $(pwd) -u $uid olympia
+fi
+
+# For python 3
+if [ ! -d "/code/venv3" ]; then
+  echo "Creating virtual environment for Python 3.7"
+  python3 -m venv --copies /code/venv3
+  chown olympia -R /code/venv3
 fi
 
 echo "Starting with user: 'olympia' uid: $(id -u olympia)"

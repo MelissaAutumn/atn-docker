@@ -1,0 +1,33 @@
+diff --git a/src/olympia/accounts/views.py b/src/olympia/accounts/views.py
+index 50db931d40..93a7fd978b 100644
+--- a/src/olympia/accounts/views.py
++++ b/src/olympia/accounts/views.py
+@@ -318,12 +318,22 @@ class LoginStartBaseView(FxAConfigMixin, APIView):
+ 
+     def get(self, request):
+         request.session.setdefault('fxa_state', generate_fxa_state())
+-        return HttpResponseRedirect(
+-            fxa_login_url(
+-                config=self.get_fxa_config(request),
+-                state=request.session['fxa_state'],
+-                next_path=request.GET.get('to'),
+-                action=request.GET.get('action', 'signin')))
++
++        # Dev work-around for local auth
++        user = UserProfile.objects.first()
++        identity = {
++            'uid': '1234',
++            'email': user.email,
++        }
++        login_user(self.__class__, request, user, identity)
++        return HttpResponseRedirect('/')
++
++        # return HttpResponseRedirect(
++        #     fxa_login_url(
++        #         config=self.get_fxa_config(request),
++        #         state=request.session['fxa_state'],
++        #         next_path=request.GET.get('to'),
++        #         action=request.GET.get('action', 'signin')))
+ 
+ 
+ class LoginStartView(LoginStartBaseView):
